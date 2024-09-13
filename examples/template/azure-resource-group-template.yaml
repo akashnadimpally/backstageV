@@ -1,0 +1,54 @@
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+metadata:
+  name: azure-resource-group
+  title: Azure Resource Group Provisioning
+  description: A template to create an Azure Resource Group
+  tags:
+    - azure
+    - resource-group
+spec:
+  type: service
+  owner: team@example.com
+  parameters:
+    - title: Azure Subscription ID
+      description: Enter your Azure Subscription ID
+      required: true
+      type: string
+    - title: Azure Client ID
+      description: Enter your Azure Client ID
+      required: true
+      type: string
+    - title: Azure Client Secret
+      description: Enter your Azure Client Secret
+      required: true
+      type: string
+    - title: Azure Tenant ID
+      description: Enter your Azure Tenant ID
+      required: true
+      type: string
+    - title: Resource Group Name
+      description: Name of the Azure Resource Group to create
+      required: true
+      type: string
+    - title: Resource Group Location
+      description: Choose the location for the Resource Group
+      required: true
+      type: string
+      enum:
+        - eastus
+        - westus
+        - centralus
+        - northeurope
+        - westeurope
+  steps:
+    - id: create-resource-group
+      name: Create Azure Resource Group
+      action: azure:resourceGroup.create
+      input:
+        subscriptionId: ${{ parameters['Azure Subscription ID'] }}
+        clientId: ${{ parameters['Azure Client ID'] }}
+        clientSecret: ${{ parameters['Azure Client Secret'] }}
+        tenantId: ${{ parameters['Azure Tenant ID'] }}
+        resourceGroupName: ${{ parameters['Resource Group Name'] }}
+        location: ${{ parameters['Resource Group Location'] }}

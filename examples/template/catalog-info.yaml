@@ -1,0 +1,8 @@
+apiVersion: backstage.io/v1alpha1
+kind: Location
+metadata:
+  name: azure-resource-group-location
+  description: Template for creating Azure Resource Groups
+spec:
+  type: url
+  target: ./azure-resource-group-template.yaml
