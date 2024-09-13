@@ -46,9 +46,10 @@ spec:
       name: Create Azure Resource Group
       action: azure:resourceGroup.create
       input:
-        subscriptionId: ${{ parameters['Azure Subscription ID'] }}
-        clientId: ${{ parameters['Azure Client ID'] }}
-        clientSecret: ${{ parameters['Azure Client Secret'] }}
-        tenantId: ${{ parameters['Azure Tenant ID'] }}
-        resourceGroupName: ${{ parameters['Resource Group Name'] }}
-        location: ${{ parameters['Resource Group Location'] }}
+        subscriptionId: ${{ parameters.subscriptionId }}
+        clientId: ${{ parameters.clientId }}
+        clientSecret: ${{ parameters.clientSecret }}
+        tenantId: ${{ parameters.tenantId }}
+        resourceGroupName: ${{ parameters.resourceGroupName }}
+        location: ${{ parameters.resourceGroupLocation }}
+
