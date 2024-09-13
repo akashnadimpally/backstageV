@@ -12,26 +12,32 @@ spec:
   owner: team@example.com
   parameters:
     - title: Azure Subscription ID
+      name: subscriptionId
       description: Enter your Azure Subscription ID
       required: true
       type: string
     - title: Azure Client ID
+      name: clientId
       description: Enter your Azure Client ID
       required: true
       type: string
     - title: Azure Client Secret
+      name: clientSecret
       description: Enter your Azure Client Secret
       required: true
       type: string
     - title: Azure Tenant ID
+      name: tenantId
       description: Enter your Azure Tenant ID
       required: true
       type: string
     - title: Resource Group Name
+      name: resourceGroupName
       description: Name of the Azure Resource Group to create
       required: true
       type: string
     - title: Resource Group Location
+      name: resourceGroupLocation
       description: Choose the location for the Resource Group
       required: true
       type: string
@@ -41,6 +47,7 @@ spec:
         - centralus
         - northeurope
         - westeurope
+
   steps:
     - id: create-resource-group
       name: Create Azure Resource Group
