@@ -5,4 +5,4 @@ metadata:
   description: Template for creating Azure Resource Groups
 spec:
   type: url
-  target: ./azure-resource-group-template.yaml
+  target: https://raw.githubusercontent.com/akashnadimpally/backstageV/main/examples/template/azure-resource-group-template.yaml
