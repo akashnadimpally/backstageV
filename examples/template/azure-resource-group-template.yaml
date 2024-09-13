@@ -49,14 +49,13 @@ spec:
         - westeurope
 
   steps:
-    - id: create-resource-group
-      name: Create Azure Resource Group
-      action: azure:resourceGroup.create
-      input:
-        subscriptionId: ${{ parameters.subscriptionId }}
-        clientId: ${{ parameters.clientId }}
-        clientSecret: ${{ parameters.clientSecret }}
-        tenantId: ${{ parameters.tenantId }}
-        resourceGroupName: ${{ parameters.resourceGroupName }}
-        location: ${{ parameters.resourceGroupLocation }}
+  - id: run-shell-script
+    name: Run Shell Script
+    action: command:execute
+    input:
+      command: |
+        echo "Creating Azure Resource Group"
+        az group create --name ${{ parameters.resourceGroupName }} --location ${{ parameters.resourceGroupLocation }}
+    description: Run an Azure CLI command to create a resource group using shell script
+
 
